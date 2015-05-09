@@ -4,15 +4,38 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 
 public class FormActivity extends ActionBarActivity {
+
+    //Explicit
+    private EditText edtName, edtPhone;
+    private String strName, strPhone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        //Bind Widget
+        bindWidget();
+
+    }   // onCreate
+
+    private void bindWidget() {
+        edtName = (EditText) findViewById(R.id.editText2);
+        edtPhone = (EditText) findViewById(R.id.editText3);
     }
+
+    public void clickSave(View view) {
+
+        strName = edtName.getText().toString().trim();
+        strPhone = edtPhone.getText().toString().trim();
+
+    }   // clickSave
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,4 +58,4 @@ public class FormActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class
