@@ -2,6 +2,7 @@ package appewtc.masterung.callfriend;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -26,6 +27,20 @@ public class CallTABLE {
         readDatabase = objMyOpenHelper.getReadableDatabase();
 
     }   //Constructor
+
+
+    public Cursor readAllData() {
+
+        Cursor objCursor = readDatabase.query(TABLE_NAME,
+                new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_PHONE},
+                null, null, null, null, null);
+
+        if (objCursor != null) {
+            objCursor.moveToFirst();
+        }
+
+        return objCursor;
+    }
 
 
     public long addNewData(String strName, String strPhone) {

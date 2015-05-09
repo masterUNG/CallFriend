@@ -9,4 +9,5 @@
     <string name="add">Add Friend</string>
     <string name="list">List Friend</string>
     <string name="title_activity_form">FormActivity</string>
+    <string name="title_activity_list_name">ListNameActivity</string>
 </resources>
