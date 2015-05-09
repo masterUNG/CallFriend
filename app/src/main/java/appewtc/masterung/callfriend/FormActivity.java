@@ -1,5 +1,6 @@
 package appewtc.masterung.callfriend;
 
+import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,7 +47,9 @@ public class FormActivity extends ActionBarActivity {
     }   // clickSave
 
     private void spaceDialog() {
-        
+
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+
     }
 
     @Override
