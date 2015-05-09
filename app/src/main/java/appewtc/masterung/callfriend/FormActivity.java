@@ -43,9 +43,41 @@ public class FormActivity extends ActionBarActivity {
 
         } else {
 
+            confirmDialog();
+
         }
 
     }   // clickSave
+
+    private void confirmDialog() {
+
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+        objBuilder.setIcon(R.drawable.friend);
+        objBuilder.setTitle("Confirm Friend");
+        objBuilder.setMessage("Are You Sure ? to Add " + strName + "\n" + "Phone = " + strPhone);
+        objBuilder.setCancelable(false);
+        objBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                updateSQLite();
+                dialogInterface.dismiss();
+                edtName.setText("");
+                edtPhone.setText("");
+            }
+        });
+        objBuilder.show();
+
+    }
+
+    private void updateSQLite() {
+
+    }
 
     private void spaceDialog() {
 
