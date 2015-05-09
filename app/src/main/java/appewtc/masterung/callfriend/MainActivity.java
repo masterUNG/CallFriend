@@ -1,9 +1,11 @@
 package appewtc.masterung.callfriend;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,6 +22,11 @@ public class MainActivity extends ActionBarActivity {
         objCallTABLE = new CallTABLE(this);
 
     }   // onCreate
+
+    public void clickAddFriend(View view) {
+        Intent objIntent = new Intent(MainActivity.this, FormActivity.class);
+        startActivity(objIntent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
