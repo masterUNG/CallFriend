@@ -35,7 +35,19 @@ public class FormActivity extends ActionBarActivity {
         strName = edtName.getText().toString().trim();
         strPhone = edtPhone.getText().toString().trim();
 
+        if (strName.equals("") || strPhone.equals("") ) {
+
+            spaceDialog();
+
+        } else {
+
+        }
+
     }   // clickSave
+
+    private void spaceDialog() {
+        
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
