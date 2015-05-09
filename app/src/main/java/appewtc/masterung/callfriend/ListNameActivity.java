@@ -1,17 +1,32 @@
 package appewtc.masterung.callfriend;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.ListActivity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SimpleCursorAdapter;
 
 
-public class ListNameActivity extends ActionBarActivity {
+public class ListNameActivity extends ListActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_name);
+       // setContentView(R.layout.activity_list_name);
+
+        createListView();
+
+    }   // onCreate
+
+    private void createListView() {
+
+        CallTABLE objCallTABLE = new CallTABLE(this);
+        Cursor objCursor = objCallTABLE.readAllData();
+        String[] from = new String[]{CallTABLE.COLUMN_NAME};
+        int[] target = new int[]{R.id.txtShowName};
+        SimpleCursorAdapter objSimpleCursorAdapter = new SimpleCursorAdapter(this, R.layout.activity_list_name, objCursor, from, target);
+        setListAdapter(objSimpleCursorAdapter);
     }
 
     @Override
@@ -35,4 +50,4 @@ public class ListNameActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class
