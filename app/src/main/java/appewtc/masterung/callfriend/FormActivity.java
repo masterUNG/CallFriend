@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class FormActivity extends ActionBarActivity {
@@ -76,6 +77,10 @@ public class FormActivity extends ActionBarActivity {
     }
 
     private void updateSQLite() {
+
+        CallTABLE objCallTABLE = new CallTABLE(this);
+        objCallTABLE.addNewData(strName, strPhone);
+        Toast.makeText(FormActivity.this, "Finish Updata Data", Toast.LENGTH_SHORT).show();
 
     }
 
